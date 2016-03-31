@@ -1,5 +1,6 @@
 import Ember from 'ember';
 import BaseControllerMixin from 'klondike/mixins/base-controller';
+import config from '../config/environment';
 
 export default Ember.Controller.extend(BaseControllerMixin, {
     'packages/search': Ember.inject.controller(),
@@ -10,6 +11,8 @@ export default Ember.Controller.extend(BaseControllerMixin, {
     isSessionInitialized: Ember.computed.oneWay('session.isInitialized'),
 
     apiURL: Ember.computed.oneWay('restClient.apiURL'),
+    
+    ui : config.APP.ui,
 
     productVersion: Ember.computed('application.version', function() {
       return this.get('application.version').split('+')[0];

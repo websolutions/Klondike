@@ -4,7 +4,11 @@ module.exports = function(environment) {
   // Here you can point to an external Klondike API provider:
   var app = {
     apiURL: '',
-    apiKey: ''
+    apiKey: '',
+    ui: {
+        title: "WSOL Dev",
+        navBarColor: "bg-blue muted"        
+    }
   };
 
   var ENV = {
@@ -53,7 +57,7 @@ module.exports = function(environment) {
     // ENV.APP.LOG_TRANSITIONS = true;
     // ENV.APP.LOG_TRANSITIONS_INTERNAL = true;
     // ENV.APP.LOG_VIEW_LOOKUPS = true;
-    ENV.contentSecurityPolicy['script-src'] = ENV.contentSecurityPolicy['script-src'] + " 'unsafe-eval'";
+    ENV.contentSecurityPolicy['script-src'] = ENV.contentSecurityPolicy['script-src'] + " 'unsafe-eval'";    
   }
 
   if (environment === 'test') {
@@ -66,6 +70,9 @@ module.exports = function(environment) {
     ENV.APP.LOG_VIEW_LOOKUPS = false;
 
     ENV.APP.rootElement = '#ember-testing';
+    
+    ENV.APP.ui.title = "WSOL Testing";
+    ENV.APP.ui.navBarColor = "bg-red";
   }
 
   if (environment === 'ember-only') {
@@ -74,6 +81,9 @@ module.exports = function(environment) {
 
   if (environment === 'production') {
     ENV.configuration = 'Release';
+    
+    ENV.APP.ui.title = "WSOL";
+    ENV.APP.ui.navBarColor = "bg-black";    
   }
 
   return ENV;
