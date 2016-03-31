@@ -1,10 +1,10 @@
 {{partial "svg-defs"}}
 
 <div class="flex flex-column" style="min-height: 100vh;">
-  <header class="white bg-blue" role="navigation">
+  <header class="white {{ui.navBarColor}}" role="navigation">
     <div class="container clearfix">
       <div class="left">
-        {{#link-to 'index' classNames='btn py2 m0'}}Klondike{{/link-to}}
+        {{#link-to 'index' classNames='btn py2 m0'}}{{ui.title}}{{/link-to}}
       </div>
       <div class="left">
         {{#link-to 'packages.list' (query-params page=0) classNames='btn py2 m0'}}Packages{{/link-to}}
@@ -50,10 +50,10 @@
         {{/with}}
         <li class="inline-block h5">
           <strong>Klondike:</strong>
-          {{productVersion}}
+            {{! productVersion}}
           {{#if productRevisionHash}}
-            <span class="kl-span--low-importance">({{productRevisionHash}})</span>
-          {{/if}}
+            <span class="kl-span--low-importance">({{! productRevisionHash}}) </span>
+          {{/if}}          
         </li>
       </ul>
     </div>
