@@ -6,6 +6,6 @@ export default Ember.Controller.extend(BaseControllerMixin, {
     ui : config.APP.ui,
     
   packageSourceCommand: function() {
-    return 'nuget sources add -name Klondike -source ' + this.get('packageSourceUri');
+    return 'nuget sources add -name "' + config.APP.ui.title + '" -source ' + this.get('packageSourceUri');
   }.property('packageSourceUri')
 });
